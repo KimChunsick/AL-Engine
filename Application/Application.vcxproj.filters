@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Entry">
+      <UniqueIdentifier>{e86beaca-4a62-40bd-866a-99609783bf9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{a480d3f2-e179-41c5-937d-ac5aea6f7e87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BackGround">
+      <UniqueIdentifier>{7cea1210-74a5-4f3d-bf4b-acd42c556144}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Ship">
+      <UniqueIdentifier>{3e786478-a5fa-4d3e-ad01-3d6ed9e8bffd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectPool">
+      <UniqueIdentifier>{c62d7c25-9fd1-42c9-b7f0-2f8b373e27a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Bullet">
+      <UniqueIdentifier>{8fc6d66f-252e-4356-8ab4-70db450c364f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DemoScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="BG.h">
+      <Filter>Game\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Star.h">
+      <Filter>Game\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerShip.h">
+      <Filter>Game\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Ship.h">
+      <Filter>Game\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>Game\ObjectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Game\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShip.h">
+      <Filter>Game\Ship</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DemoScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Entry.cpp">
+      <Filter>Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="BG.cpp">
+      <Filter>Game\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Star.cpp">
+      <Filter>Game\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerShip.cpp">
+      <Filter>Game\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Ship.cpp">
+      <Filter>Game\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>Game\ObjectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Game\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShip.cpp">
+      <Filter>Game\Ship</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
