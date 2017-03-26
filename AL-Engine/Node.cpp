@@ -14,7 +14,7 @@ namespace AL
 		_globalDepth(0),
 		_name("")
 	{
-		Retain();
+		SetAutoRelease();
 	}
 
 	Node::~Node()
@@ -34,6 +34,7 @@ namespace AL
 
 	void Node::AddChild(Node * child)
 	{
+		child->Retain();
 		_children.push_back(child);
 	}
 

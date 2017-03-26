@@ -16,6 +16,10 @@ void DemoScene::OnEnter()
 
 	ObjectPool::GetInstance()->Init(this, 20);
 
+	Sprite* refCountTest = new Sprite(L"Etc/life.png");
+	refCountTest->SetPosition(Director::GetInstance()->GetScreenSize() * 0.5f);
+	refCountTest->SetGlobalDepth(100);
+
 	_player = new PlayerShip();
 	_player->SetSpeed(250.f);
 	_player->SetPositionX(screenSize.x * 0.5f);
