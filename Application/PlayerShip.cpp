@@ -10,6 +10,7 @@ PlayerShip::PlayerShip()
 
 void PlayerShip::Update()
 {
+	SetPerfectCollider();
 	GetKey();
 }
 

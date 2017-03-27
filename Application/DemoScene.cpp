@@ -26,11 +26,11 @@ void DemoScene::OnEnter()
 	_player->SetPositionY(screenSize.y * 0.8f);
 	this->AddChild(_player);
 
-	EnemyShip* enemyShip = new EnemyShip();
-	enemyShip->SetSpeed(50.0f);
-	enemyShip->SetPositionX(screenSize.x * 0.5f);
-	enemyShip->SetPositionY(screenSize.y * 0.2f);
-	this->AddChild(enemyShip);
+	_enemyShip = new EnemyShip();
+	_enemyShip->SetSpeed(50.0f);
+	_enemyShip->SetPositionX(screenSize.x * 0.5f);
+	_enemyShip->SetPositionY(screenSize.y * 0.2f);
+	this->AddChild(_enemyShip);
 }
 
 void DemoScene::OnExit()
@@ -40,5 +40,26 @@ void DemoScene::OnExit()
 
 void DemoScene::Update()
 {
-	
+	for (auto bullet : ObjectPool::GetInstance()->GetBulletList())
+	{
+		/*
+		if (!bullet->IsActive())
+			continue;
+		*/
+		
+		bullet->CollideBullet(_enemyShip);
+
+		/*if (_enemyShip->GetCollider().IsAABB(bullet->GetCollider()))
+		{
+			bullet->SetActive(false);
+		}*/
+
+		/*for (auto ship : ObjectPool::GetInstance()->GetEnemyShipList())
+		{
+			if (bullet->GetCollider().IsAABB(ship->GetCollider()))
+			{
+				bullet->SetActive(false);
+			}
+		}*/
+	}
 }

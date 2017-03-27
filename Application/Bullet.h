@@ -11,6 +11,7 @@ public:
 	
 	void Update() override;
 	void SetBullet(int damage, float speed, SHIP_TYPE owner);
+	void CollideBullet(Ship* ship);
 
 private:
 	void Movement();

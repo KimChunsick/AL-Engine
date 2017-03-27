@@ -13,7 +13,11 @@ public:
 	Bullet* GetBullet();
 	Ship* GetShip();
 
+	std::list<Bullet*> GetBulletList() { return _bullets; }
+	std::list<Ship*> GetEnemyShipList() { return _enemyShips; }
+
 private:
 	Scene* _parent;
 	std::list<Bullet*> _bullets;
+	std::list<Ship*> _enemyShips;
 };

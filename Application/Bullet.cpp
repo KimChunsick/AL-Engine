@@ -11,6 +11,7 @@ Bullet::~Bullet()
 
 void Bullet::Update()
 {
+	SetPerfectCollider();
 	Movement();
 	IsOutOfScreen();
 }
@@ -27,6 +28,24 @@ void Bullet::SetBullet(int damage, float speed, SHIP_TYPE owner)
 		SetTexture2D(L"Laser/laserGreen.png");
 
 	SetActive(true);
+}
+
+void Bullet::CollideBullet(Ship * ship)
+{
+	if (!GetCollider().IsAABB(ship->GetCollider()))
+		return;
+
+	cout << "??" << endl;
+
+	if (ship->GetType() == SHIP_TYPE::PLAYER_SHIP && this->_owner != SHIP_TYPE::PLAYER_SHIP)
+	{
+		ship->SetDamage(this->_damage);
+	}
+	else if (ship->GetType() != SHIP_TYPE::PLAYER_SHIP && this->_owner == SHIP_TYPE::PLAYER_SHIP)
+	{
+		ship->SetDamage(this->_damage);
+		this->SetActive(false);
+	}
 }
 
 void Bullet::Movement()

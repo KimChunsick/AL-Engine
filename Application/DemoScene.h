@@ -15,4 +15,5 @@ public:
 private:
 	BG* _bg;
 	PlayerShip* _player;
+	EnemyShip* _enemyShip;
 };

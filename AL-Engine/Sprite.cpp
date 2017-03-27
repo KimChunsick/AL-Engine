@@ -28,7 +28,6 @@ namespace AL
 
 	void Sprite::Update()
 	{
-		_collider.SetRect(GetPosition(), Vector2(_texture2D->info.Width, _texture2D->info.Height), _pivot, GetScale());
 	}
 
 	void Sprite::Draw()
@@ -45,7 +44,6 @@ namespace AL
 		if (_texture2D == nullptr)
 			return;
 
-
 		Director::sprite->Begin(D3DXSPRITE_ALPHABLEND);
 		Director::sprite->SetTransform(&GetMatrix());
 
@@ -59,6 +57,12 @@ namespace AL
 	{
 		_texture2D = TextureManager::GetInstance()->LoadTexture(path);
 		Renderer::GetInstance()->AddRenderTarget(this);
+	}
+
+	void Sprite::SetPerfectCollider()
+	{
+		if (_texture2D != nullptr)
+			_collider.SetRect(GetPosition(), Vector2(_texture2D->info.Width, _texture2D->info.Height), _pivot, GetScale());
 	}
 
 	bool Sprite::IsCulling()

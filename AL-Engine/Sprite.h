@@ -29,6 +29,11 @@ namespace AL
 		void SetColor(const float r, const float g, const float b, const float a) { _color.Set(r, g, b, a); }
 		Color GetColor() { return _color; }
 
+		Collider GetCollider() { return _collider; }
+
+	protected:
+		void SetPerfectCollider();
+
 	private:
 		bool IsCulling();
 
