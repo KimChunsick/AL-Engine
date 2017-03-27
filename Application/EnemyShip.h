@@ -20,5 +20,5 @@ private:
 
 private:
 	Vector2 _screenSize;
-	float fireDelay;
+	float _fireDelay;
 };

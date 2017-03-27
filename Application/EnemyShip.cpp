@@ -1,6 +1,8 @@
 #include "EnemyShip.h"
+#include "ObjectPool.h"
 
-EnemyShip::EnemyShip()
+EnemyShip::EnemyShip() : 
+	_fireDelay(0.f)
 {
 	_type = SHIP_TYPE::ENEMY_SHIP;
 	SetTexture2D(L"Ships/Enemy/enemyShip.png");
@@ -13,7 +15,18 @@ EnemyShip::~EnemyShip()
 
 void EnemyShip::Update()
 {
+	CheckScreenOut();
 	Move();
+
+	if (CheckTime())
+		Fire();
+}
+
+void EnemyShip::Fire()
+{
+	Bullet* temp = ObjectPool::GetInstance()->GetBullet();
+	temp->SetBullet(_damage, 200.f, SHIP_TYPE::ENEMY_SHIP);
+	temp->SetPosition(GetPosition());
 }
 
 void EnemyShip::Spawn()
@@ -33,4 +46,16 @@ void EnemyShip::CheckScreenOut()
 {
 	if (_screenSize.y < GetPositionY())
 		SetActive(false);
+}
+
+bool EnemyShip::CheckTime()
+{
+	_fireDelay += Time::deltaTime;
+
+	if (_fireDelay >= 0.5f && IsActive())
+	{
+		_fireDelay = 0.f;
+		return true;
+	}
+	return false;
 }
