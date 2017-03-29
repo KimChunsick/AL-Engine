@@ -14,6 +14,7 @@ void Bullet::Update()
 	SetPerfectCollider();
 	Movement();
 	IsOutOfScreen();
+	HitCheck();
 }
 
 void Bullet::SetBullet(int damage, float speed, SHIP_TYPE owner)
@@ -40,11 +41,14 @@ void Bullet::CollideBullet(Ship * ship)
 	if (ship->GetType() == SHIP_TYPE::PLAYER_SHIP && this->_owner != SHIP_TYPE::PLAYER_SHIP)
 	{
 		ship->SetDamage(this->_damage);
+		SetTexture2D(L"Laser/laserGreenShot.png");
+		_isHit = true;
 	}
 	else if (ship->GetType() != SHIP_TYPE::PLAYER_SHIP && this->_owner == SHIP_TYPE::PLAYER_SHIP)
 	{
 		ship->SetDamage(this->_damage);
-		this->SetActive(false);
+		SetTexture2D(L"Laser/laserRedShot.png");
+		_isHit = true;
 	}
 }
 
@@ -70,4 +74,20 @@ void Bullet::IsOutOfScreen()
 {
 	if (_screenSize.y < GetPositionY() || 0 > GetPositionY() || _screenSize.x < GetPositionX() || 0 > GetPositionX())
 		SetActive(false);
+}
+
+void Bullet::HitCheck()
+{
+	if (_isHit)
+	{
+		_hitDelay += Time::deltaTime;
+		_speed = 0.f;
+		//printf("%f\n", _hitDelay) ;
+		if (_hitDelay >= 0.3f)
+		{
+			_isHit = false;
+			_hitDelay = 0.f;
+			SetActive(false);
+		}
+	}
 }

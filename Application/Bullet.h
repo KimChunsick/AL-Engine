@@ -18,10 +18,13 @@ private:
 	void MoveUp();
 	void MoveDown();
 	void IsOutOfScreen();
+	void HitCheck();
 
 private:
 	int _damage = 0;
+	float _hitDelay = 0.f;
 	float _speed = 0;
+	bool _isHit = false;
 	SHIP_TYPE _owner;
 	Vector2 _screenSize;
 };

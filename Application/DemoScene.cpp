@@ -42,10 +42,10 @@ void DemoScene::Update()
 {
 	for (auto bullet : ObjectPool::GetInstance()->GetBulletList())
 	{
-		/*
+		
 		if (!bullet->IsActive())
 			continue;
-		*/
+		
 		
 		bullet->CollideBullet(_enemyShip);
 
