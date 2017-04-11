@@ -33,6 +33,9 @@ void Bullet::SetBullet(int damage, float speed, SHIP_TYPE owner)
 
 void Bullet::CollideBullet(Ship * ship)
 {
+	if (!ship->IsActive())
+		return;
+
 	if (!GetCollider().IsAABB(ship->GetCollider()))
 		return;
 
@@ -40,13 +43,13 @@ void Bullet::CollideBullet(Ship * ship)
 
 	if (ship->GetType() == SHIP_TYPE::PLAYER_SHIP && this->_owner != SHIP_TYPE::PLAYER_SHIP)
 	{
-		ship->SetDamage(this->_damage);
+		ship->GetHit(this->_damage);
 		SetTexture2D(L"Laser/laserGreenShot.png");
 		_isHit = true;
 	}
 	else if (ship->GetType() != SHIP_TYPE::PLAYER_SHIP && this->_owner == SHIP_TYPE::PLAYER_SHIP)
 	{
-		ship->SetDamage(this->_damage);
+		ship->GetHit(this->_damage);
 		SetTexture2D(L"Laser/laserRedShot.png");
 		_isHit = true;
 	}
@@ -82,7 +85,6 @@ void Bullet::HitCheck()
 	{
 		_hitDelay += Time::deltaTime;
 		_speed = 0.f;
-		//printf("%f\n", _hitDelay) ;
 		if (_hitDelay >= 0.3f)
 		{
 			_isHit = false;

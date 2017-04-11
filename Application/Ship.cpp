@@ -8,7 +8,7 @@ Ship::Ship() :
 Ship::~Ship()
 { }
 
-void Ship::GetDamage(int damage)
+void Ship::GetHit(int damage)
 {
 	_hp -= damage;
 

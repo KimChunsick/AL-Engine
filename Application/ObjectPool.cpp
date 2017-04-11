@@ -1,16 +1,25 @@
 #include "ObjectPool.h"
 
-void ObjectPool::Init(Scene* parent, int count)
+void ObjectPool::Init(Scene * parent, int count)
 {
 	_parent = parent;
-
 	Bullet* tempBullet = nullptr;
 	for (int i = 0; i < count; i++)
 	{
 		tempBullet = new Bullet();
-		_parent->AddChild(tempBullet);
 		tempBullet->SetActive(false);
 		_bullets.push_back(tempBullet);
+		_parent->AddChild(tempBullet);
+	}
+
+	EnemyShip* tempShip = nullptr;
+	for (int i = 0; i < count * 0.5f; ++i)
+	{
+		tempShip = new EnemyShip();
+		tempShip->SetSpeed(50.0f);
+		tempShip->SetActive(false);
+		_enemyShips.push_back(tempShip);
+		_parent->AddChild(tempShip);
 	}
 }
 
@@ -22,13 +31,22 @@ Bullet * ObjectPool::GetBullet()
 			return bullet;
 	}
 	Bullet* tempBullet = new Bullet();
-	_parent->AddChild(tempBullet);
 	tempBullet->SetActive(false);
+	_parent->AddChild(tempBullet);
 	_bullets.push_back(tempBullet);
 	return tempBullet;
 }
 
 Ship * ObjectPool::GetShip()
 {
-	return nullptr;
+	for (Ship* ship : _enemyShips)
+	{
+		if (!ship->IsActive())
+			return ship;
+	}
+	Ship* tempShip = new Ship();
+	tempShip->SetActive(false);
+	_parent->AddChild(tempShip);
+	_enemyShips.push_back(tempShip);
+	return tempShip;
 }

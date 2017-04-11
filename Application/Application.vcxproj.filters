@@ -40,14 +40,14 @@
     <ClInclude Include="Ship.h">
       <Filter>Game\Ship</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectPool.h">
-      <Filter>Game\ObjectPool</Filter>
-    </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Game\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="EnemyShip.h">
       <Filter>Game\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>Game\ObjectPool</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -69,14 +69,14 @@
     <ClCompile Include="Ship.cpp">
       <Filter>Game\Ship</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectPool.cpp">
-      <Filter>Game\ObjectPool</Filter>
-    </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Game\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="EnemyShip.cpp">
       <Filter>Game\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>Game\ObjectPool</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

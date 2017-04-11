@@ -53,7 +53,7 @@ bool EnemyShip::CheckTime()
 {
 	_fireDelay += Time::deltaTime;
 
-	if (_fireDelay >= 1.0f && IsActive())
+	if (_fireDelay >= 2.0f && IsActive())
 	{
 		_fireDelay = 0.f;
 		return true;

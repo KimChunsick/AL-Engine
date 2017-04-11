@@ -4,6 +4,7 @@
 #include <list>
 #include "Bullet.h"
 #include "Ship.h"
+#include "EnemyShip.h"
 
 class ObjectPool : public Singleton<ObjectPool>
 {

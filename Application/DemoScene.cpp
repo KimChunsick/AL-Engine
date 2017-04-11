@@ -26,11 +26,11 @@ void DemoScene::OnEnter()
 	_player->SetPositionY(screenSize.y * 0.8f);
 	this->AddChild(_player);
 
-	_enemyShip = new EnemyShip();
+	/*_enemyShip = new EnemyShip();
 	_enemyShip->SetSpeed(50.0f);
 	_enemyShip->SetPositionX(screenSize.x * 0.5f);
 	_enemyShip->SetPositionY(screenSize.y * 0.2f);
-	this->AddChild(_enemyShip);
+	this->AddChild(_enemyShip);*/
 }
 
 void DemoScene::OnExit()
@@ -40,26 +40,36 @@ void DemoScene::OnExit()
 
 void DemoScene::Update()
 {
+	SpawnShip();
+	CollideBullet();
+}
+
+void DemoScene::CollideBullet()
+{
 	for (auto bullet : ObjectPool::GetInstance()->GetBulletList())
 	{
-		
 		if (!bullet->IsActive())
 			continue;
-		
-		
-		bullet->CollideBullet(_enemyShip);
 
-		/*if (_enemyShip->GetCollider().IsAABB(bullet->GetCollider()))
+		bullet->CollideBullet(_player);
+		for (auto enemyShip : ObjectPool::GetInstance()->GetEnemyShipList())
 		{
-			bullet->SetActive(false);
-		}*/
+			bullet->CollideBullet(enemyShip);
+		}
+	}
+}
 
-		/*for (auto ship : ObjectPool::GetInstance()->GetEnemyShipList())
-		{
-			if (bullet->GetCollider().IsAABB(ship->GetCollider()))
-			{
-				bullet->SetActive(false);
-			}
-		}*/
+void DemoScene::SpawnShip()
+{
+	static float timer = 0.f;
+	timer += Time::deltaTime;
+
+	if (timer >= 1.5f)
+	{
+		Ship* ship = ObjectPool::GetInstance()->GetShip();
+		ship->SetPositionY(0.f);
+		ship->SetPositionX(rand() % (int)Director::GetInstance()->GetScreenSize().x);
+		ship->SetActive(true);
+		timer = 0.f;
 	}
 }

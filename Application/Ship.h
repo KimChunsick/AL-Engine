@@ -24,7 +24,7 @@ public:
 	void SetHP(int hp) { _hp = hp; }
 	int GetHP() { return _hp; }
 
-	void GetDamage(int damage);
+	void GetHit(int damage);
 
 	void SetType(SHIP_TYPE type) { _type = type; }
 	SHIP_TYPE GetType() { return _type; }

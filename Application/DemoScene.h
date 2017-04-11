@@ -13,6 +13,10 @@ public:
 	void Update() override;
 
 private:
+	void CollideBullet();
+	void SpawnShip();
+
+private:
 	BG* _bg;
 	PlayerShip* _player;
 	EnemyShip* _enemyShip;
