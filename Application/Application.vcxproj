@@ -133,6 +133,7 @@
     <ClInclude Include="PlayerShip.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="Star.h" />
+    <ClInclude Include="UFOShip.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BG.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="PlayerShip.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Star.cpp" />
+    <ClCompile Include="UFOShip.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

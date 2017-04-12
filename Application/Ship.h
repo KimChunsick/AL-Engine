@@ -25,13 +25,13 @@ public:
 	int GetHP() { return _hp; }
 
 	void GetHit(int damage);
+	virtual void Spawn();
 
 	void SetType(SHIP_TYPE type) { _type = type; }
 	SHIP_TYPE GetType() { return _type; }
 
 protected:
 	virtual void Die();
-	virtual void Spawn();
 
 protected:
 	int _damage;

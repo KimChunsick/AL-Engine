@@ -16,6 +16,7 @@ void Ship::GetHit(int damage)
 	{
 		Die();
 	}
+	std::cout << damage << std::endl;
 }
 
 void Ship::Die()

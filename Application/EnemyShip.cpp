@@ -7,6 +7,7 @@ EnemyShip::EnemyShip() :
 	_type = SHIP_TYPE::ENEMY_SHIP;
 	SetTexture2D(L"Ships/Enemy/enemyShip.png");
 	_screenSize = Director::GetInstance()->GetScreenSize();
+	SetHP(1);
 }
 
 EnemyShip::~EnemyShip()
@@ -36,6 +37,7 @@ void EnemyShip::Spawn()
 	float y = 0.f;
 	SetPosition(x, y);
 	SetActive(true);
+	SetHP(1);
 }
 
 void EnemyShip::Move()

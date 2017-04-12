@@ -10,10 +10,10 @@ public:
 	virtual ~EnemyShip();
 
 	void Update() override;
+	void Spawn() override;
 	void Fire();
 
 private:
-	void Spawn();
 	void Move();
 	void CheckScreenOut();
 	bool CheckTime();

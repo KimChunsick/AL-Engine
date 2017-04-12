@@ -49,6 +49,9 @@
     <ClInclude Include="ObjectPool.h">
       <Filter>Game\ObjectPool</Filter>
     </ClInclude>
+    <ClInclude Include="UFOShip.h">
+      <Filter>Game\Ship</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DemoScene.cpp">
@@ -77,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="ObjectPool.cpp">
       <Filter>Game\ObjectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="UFOShip.cpp">
+      <Filter>Game\Ship</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -21,6 +21,16 @@ void ObjectPool::Init(Scene * parent, int count)
 		_enemyShips.push_back(tempShip);
 		_parent->AddChild(tempShip);
 	}
+
+	UFOShip* ufoShip = nullptr;
+	for (int i = 0; i < count * 0.5f; ++i)
+	{
+		ufoShip = new UFOShip();
+		ufoShip->SetSpeed(100.0f);
+		ufoShip->SetActive(false);
+		_enemyShips.push_back(ufoShip);
+		_parent->AddChild(ufoShip);
+	}
 }
 
 Bullet * ObjectPool::GetBullet()
@@ -37,16 +47,33 @@ Bullet * ObjectPool::GetBullet()
 	return tempBullet;
 }
 
-Ship * ObjectPool::GetShip()
+Ship * ObjectPool::GetEnemyShip()
 {
 	for (Ship* ship : _enemyShips)
 	{
-		if (!ship->IsActive())
+		if (!ship->IsActive() && ship->GetType() == SHIP_TYPE::ENEMY_SHIP)
 			return ship;
 	}
-	Ship* tempShip = new Ship();
+	EnemyShip* tempShip = new EnemyShip();
+	tempShip = new EnemyShip();
+	tempShip->SetSpeed(50.0f);
 	tempShip->SetActive(false);
-	_parent->AddChild(tempShip);
 	_enemyShips.push_back(tempShip);
+	_parent->AddChild(tempShip);
 	return tempShip;
+}
+
+Ship * ObjectPool::GetUFOShip()
+{
+	for (Ship* ship : _enemyShips)
+	{
+		if (!ship->IsActive() && ship->GetType() == SHIP_TYPE::ENEMY_UFO)
+			return ship;
+	}
+	UFOShip* ufoShip = new UFOShip();
+	ufoShip->SetSpeed(100.0f);
+	ufoShip->SetActive(false);
+	_enemyShips.push_back(ufoShip);
+	_parent->AddChild(ufoShip);
+	return ufoShip;
 }

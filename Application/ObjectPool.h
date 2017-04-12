@@ -5,6 +5,7 @@
 #include "Bullet.h"
 #include "Ship.h"
 #include "EnemyShip.h"
+#include "UFOShip.h"
 
 class ObjectPool : public Singleton<ObjectPool>
 {
@@ -12,7 +13,8 @@ public:
 	void Init(Scene* parent, int count);
 	
 	Bullet* GetBullet();
-	Ship* GetShip();
+	Ship* GetEnemyShip();
+	Ship* GetUFOShip();
 
 	std::list<Bullet*> GetBulletList() { return _bullets; }
 	std::list<Ship*> GetEnemyShipList() { return _enemyShips; }

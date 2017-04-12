@@ -36,10 +36,11 @@ void Bullet::CollideBullet(Ship * ship)
 	if (!ship->IsActive())
 		return;
 
-	if (!GetCollider().IsAABB(ship->GetCollider()))
+	if (_isHit)
 		return;
 
-	cout << "??" << endl;
+	if (!GetCollider().IsAABB(ship->GetCollider()))
+		return;
 
 	if (ship->GetType() == SHIP_TYPE::PLAYER_SHIP && this->_owner != SHIP_TYPE::PLAYER_SHIP)
 	{

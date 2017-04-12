@@ -22,15 +22,10 @@ void DemoScene::OnEnter()
 
 	_player = new PlayerShip();
 	_player->SetSpeed(250.f);
+	_player->SetDamage(1);
 	_player->SetPositionX(screenSize.x * 0.5f);
 	_player->SetPositionY(screenSize.y * 0.8f);
 	this->AddChild(_player);
-
-	/*_enemyShip = new EnemyShip();
-	_enemyShip->SetSpeed(50.0f);
-	_enemyShip->SetPositionX(screenSize.x * 0.5f);
-	_enemyShip->SetPositionY(screenSize.y * 0.2f);
-	this->AddChild(_enemyShip);*/
 }
 
 void DemoScene::OnExit()
@@ -62,14 +57,18 @@ void DemoScene::CollideBullet()
 void DemoScene::SpawnShip()
 {
 	static float timer = 0.f;
+	static bool flag = false;
 	timer += Time::deltaTime;
 
 	if (timer >= 1.5f)
 	{
-		Ship* ship = ObjectPool::GetInstance()->GetShip();
-		ship->SetPositionY(0.f);
-		ship->SetPositionX(rand() % (int)Director::GetInstance()->GetScreenSize().x);
-		ship->SetActive(true);
+		Ship* ship = nullptr;
+		if (flag)
+			ship = ObjectPool::GetInstance()->GetUFOShip();
+		else
+			ship = ObjectPool::GetInstance()->GetEnemyShip();
 		timer = 0.f;
+		ship->Spawn();
+		flag = !flag;
 	}
 }

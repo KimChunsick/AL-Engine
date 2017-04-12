@@ -42,6 +42,7 @@ namespace AL
 		bool IsVisible() { return _isVisible; }
 
 		void SetRotation(const float rotation) { _rotation = rotation; }
+		void AddRotation(const float rotation) { _rotation += rotation; }
 		float GetRotation() { return _rotation; }
 
 		void SetScale(const Vector2 scale) { _scale = scale; }
