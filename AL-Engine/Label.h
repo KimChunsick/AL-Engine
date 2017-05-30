@@ -44,7 +44,7 @@ namespace AL
 		Label(const std::wstring text, const unsigned int width, const unsigned int height, const LABEL_TYPE type, bool isItalic, const LABEL_QUALITY quality, const std::wstring fontName, const Color color);
 		
 		virtual ~Label() 
-		{ 
+		{
 			Renderer::GetInstance()->RemoveRenderTarget(this);
 			SAFE_RELEASE(_font);
 		}

@@ -28,7 +28,7 @@ void DemoScene::OnEnter()
 	this->AddChild(_player);
 
 	Label* _label = new Label();
-	_label->Init(L"테스트", 20, 10, LABEL_TYPE::NORMAL, true, LABEL_QUALITY::NORMAL);
+	_label->Init(L"테스트", 20, 50, LABEL_TYPE::NORMAL, true, LABEL_QUALITY::NORMAL);
 	_label->SetPosition(Director::GetInstance()->GetScreenSize() * 0.5f);
 	_label->SetGlobalDepth(10000);
 	this->AddChild(_label);

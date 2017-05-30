@@ -51,8 +51,8 @@ namespace AL
 	{
 		_width = width;
 		_height = height;
-		_text = text;
 		_color = color;
+		_text = text;
 		D3DXCreateFont(DXUTGetD3D9Device(), height, width, static_cast<int>(type), 1, isItalic, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, static_cast<int>(quality), DEFAULT_PITCH | FF_DONTCARE, L"Arial", &_font);
 		Renderer::GetInstance()->AddRenderTarget(this);
 	}
@@ -78,7 +78,14 @@ namespace AL
 
 	void Label::Draw()
 	{
-		RECT rect = { _position.x, _position.y, 0, 0 };
-		_font->DrawText(NULL, _text.c_str(), _text.size(), &rect, DT_NOCLIP, _color);
+		unsigned int textLength = _text.size();
+		RECT rect = { 0, 0, 0, 0 };
+		_font->DrawText(NULL, _text.c_str(), _text.size(), &rect, DT_CENTER | DT_CALCRECT, _color);
+
+		rect.left += _position.x;
+		rect.right += _position.x;
+		rect.top += _position.y;
+		rect.bottom += _position.y;
+		_font->DrawText(NULL, _text.c_str(), _text.size(), &rect, DT_CENTER, _color);
 	}
 }
