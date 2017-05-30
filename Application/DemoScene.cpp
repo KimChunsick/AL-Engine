@@ -30,6 +30,7 @@ void DemoScene::OnEnter()
 	Label* _label = new Label();
 	_label->Init(L"Å×½ºÆ®", 20, 50, LABEL_TYPE::NORMAL, true, LABEL_QUALITY::NORMAL);
 	_label->SetPosition(Director::GetInstance()->GetScreenSize() * 0.5f);
+	_label->SetFormat(LABEL_ALIGHN::RIGHR);
 	_label->SetGlobalDepth(10000);
 	this->AddChild(_label);
 }

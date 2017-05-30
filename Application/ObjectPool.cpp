@@ -27,6 +27,7 @@ void ObjectPool::Init(Scene * parent, int count)
 	{
 		ufoShip = new UFOShip();
 		ufoShip->SetSpeed(100.0f);
+		ufoShip->SetRotationSpeed(1.f);
 		ufoShip->SetActive(false);
 		_enemyShips.push_back(ufoShip);
 		_parent->AddChild(ufoShip);

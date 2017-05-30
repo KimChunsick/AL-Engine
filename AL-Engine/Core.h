@@ -2,6 +2,7 @@
 
 #define DXUT_AUTOLIB
 #define WIN32_LEAN_AND_MEAN
+//#pragma comment(lib, "fmod_vc.lib")
 
 #include "DXUT\Core\DXUT.h"
 #include <tchar.h>

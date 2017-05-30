@@ -7,7 +7,8 @@ namespace AL
 		_color(Color::White()),
 		_text(text),
 		_width(width),
-		_height(height)
+		_height(height),
+		_labelFormat(static_cast<int>(LABEL_ALIGHN::CENTER))
 	{
 		Init(text, width, height, type, isItalic, quality);
 	}
@@ -16,7 +17,8 @@ namespace AL
 		_color(color),
 		_text(text),
 		_width(width),
-		_height(height)
+		_height(height),
+		_labelFormat(static_cast<int>(LABEL_ALIGHN::CENTER))
 	{
 		Init(text, width, height, type, isItalic, quality, color);
 	}
@@ -24,7 +26,8 @@ namespace AL
 	Label::Label(const std::wstring text, const unsigned int width, const unsigned int height, const LABEL_TYPE type, bool isItalic, const LABEL_QUALITY quality, const std::wstring fontName) :
 		_text(text),
 		_width(width),
-		_height(height)
+		_height(height),
+		_labelFormat(static_cast<int>(LABEL_ALIGHN::CENTER))
 	{
 		Init(text, width, height, type, isItalic, quality, fontName);
 	}
@@ -33,7 +36,8 @@ namespace AL
 		_color(color),
 		_text(text),
 		_width(width),
-		_height(height)
+		_height(height),
+		_labelFormat(static_cast<int>(LABEL_ALIGHN::CENTER))
 	{
 		Init(text, width, height, type, isItalic, quality, fontName, color);
 	}

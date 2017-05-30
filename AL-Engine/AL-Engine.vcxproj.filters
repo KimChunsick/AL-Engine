@@ -126,6 +126,7 @@
     <ClCompile Include="Label.cpp">
       <Filter>11. Label</Filter>
     </ClCompile>
+    <ClCompile Include="SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Types.h">
@@ -209,6 +210,9 @@
     </ClInclude>
     <ClInclude Include="Label.h">
       <Filter>11. Label</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>12. Sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

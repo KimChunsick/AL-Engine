@@ -8,10 +8,6 @@ UFOShip::UFOShip()
 	SetHP(5);
 }
 
-UFOShip::~UFOShip()
-{
-}
-
 void UFOShip::Update()
 {
 	SetPerfectCollider();
@@ -31,7 +27,7 @@ void UFOShip::Spawn()
 void UFOShip::Move()
 {
 	AddPositionY(_speed * Time::deltaTime);
-	AddRotation(_speed * 0.4f);
+	AddRotation(_rotationSpeed);
 }
 
 void UFOShip::CheckScreenOut()
