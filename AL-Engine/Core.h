@@ -27,11 +27,7 @@
 #include "Director.h"
 #include "Collider.h"
 #include "Sprite.h"
+#include "Label.h"
 
 using namespace AL;
 using namespace std;
-
-//#include "Animator.h"
-//#include "Camera.h"
-//#include "Debug.h"
-//#include "Text.h"

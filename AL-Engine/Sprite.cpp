@@ -8,7 +8,6 @@ namespace AL
 		_color(Color::White()),
 		_texture2D(nullptr)
 	{
-		D3DXCreateSprite(DXUTGetD3D9Device(), &Director::sprite);
 	}
 
 	Sprite::Sprite(const std::wstring path) :
@@ -17,7 +16,6 @@ namespace AL
 		_texture2D(nullptr)
 	{
 		_texture2D = TextureManager::GetInstance()->LoadTexture(path);
-		D3DXCreateSprite(DXUTGetD3D9Device(), &Director::sprite);
 		Renderer::GetInstance()->AddRenderTarget(this);
 	}
 
@@ -44,13 +42,13 @@ namespace AL
 		if (_texture2D == nullptr)
 			return;
 
-		Director::sprite->Begin(D3DXSPRITE_ALPHABLEND);
-		Director::sprite->SetTransform(&GetMatrix());
+		Director::GetSprite()->Begin(D3DXSPRITE_ALPHABLEND);
+		Director::GetSprite()->SetTransform(&GetMatrix());
 
 		D3DXVECTOR3 center(_texture2D->info.Width * _pivot.x, _texture2D->info.Height * _pivot.y, 0.f);
 
-		Director::sprite->Draw(_texture2D->texture, nullptr, &center, nullptr, _color);
-		Director::sprite->End();
+		Director::GetSprite()->Draw(_texture2D->texture, nullptr, &center, nullptr, _color);
+		Director::GetSprite()->End();
 	}
 
 	void Sprite::SetTexture2D(const std::wstring path)

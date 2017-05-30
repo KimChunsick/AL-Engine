@@ -62,7 +62,7 @@ namespace AL
 		}
 	}
 
-	D3DXMATRIX Node::GetMatrix()
+	const D3DXMATRIX Node::GetMatrix() const
 	{
 		D3DXMATRIX m;
 		D3DXMatrixIdentity(&m);

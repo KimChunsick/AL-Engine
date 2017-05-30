@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Users\ProAL\Documents\GitHub\AL-Engine\AL-Engine\DXUT\Core;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Develop\GitRepository\AL-Engine\AL-Engine\DXUT\Core;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -121,7 +121,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ALLog.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="AutoReleasePool.cpp" />
     <ClCompile Include="Collider.cpp" />
@@ -140,6 +139,7 @@
     <ClCompile Include="DXUT\Optional\SDKmisc.cpp" />
     <ClCompile Include="DXUT\Optional\SDKsound.cpp" />
     <ClCompile Include="DXUT\Optional\SDKwavefile.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Ref.cpp" />
     <ClCompile Include="Renderer.cpp" />
@@ -149,7 +149,6 @@
     <ClCompile Include="Types.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ALLog.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="AutoReleasePool.h" />
     <ClInclude Include="Collider.h" />
@@ -170,6 +169,7 @@
     <ClInclude Include="DXUT\Optional\SDKmisc.h" />
     <ClInclude Include="DXUT\Optional\SDKsound.h" />
     <ClInclude Include="DXUT\Optional\SDKwavefile.h" />
+    <ClInclude Include="Label.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="Renderer.h" />

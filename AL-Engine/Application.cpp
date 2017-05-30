@@ -9,6 +9,7 @@ namespace AL
 	HRESULT CALLBACK OnD3D9CreateDevice(IDirect3DDevice9* pd3dDevice, const D3DSURFACE_DESC* pBackBufferSurfaceDesc,
 		void* pUserContext)
 	{
+		Director::Init();
 		return S_OK;
 	}
 
@@ -16,11 +17,8 @@ namespace AL
 	{
 		HRESULT hr;
 
-		// Clear the render target and the zbuffer 
 		V(pd3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_ARGB(0, 0, 0, 0), 1.0f, 0));
-		//V(pd3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_ARGB(0, 45, 50, 170), 1.0f, 0));
 
-		// Render the scene
 		if (SUCCEEDED(pd3dDevice->BeginScene()))
 		{
 			Time::deltaTime = fElapsedTime * Time::timeScale;
@@ -42,7 +40,7 @@ namespace AL
 		width(1280),
 		height(720),
 		isWindow(true),
-		title(L"Test")
+		title(L"AL-Engine")
 	{ }
 
 	Application::~Application()

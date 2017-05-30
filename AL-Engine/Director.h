@@ -8,25 +8,24 @@ namespace AL
 {
 	class Director : public Singleton<Director>
 	{
-	public:
-		Director();
-		virtual ~Director() {}
-
-		void Update();
-		void ReplaceScene(Scene* scene);
-
-		Vector2 GetScreenSize();
-
-	public:
-		static LPD3DXSPRITE sprite;
+	private:
+		Scene* _currentScene;
+		Scene* _nextScene;
+		static LPD3DXSPRITE _sprite;
 
 	private:
 		void UpdateGame();
 		void SetNextScene();
 
-	private:
-		Scene* _currentScene;
-		Scene* _nextScene;
-		
+	public:
+		Director();
+		virtual ~Director() {}
+
+		void Update();
+		void ReplaceScene(Scene* const scene);
+		static void Init();
+
+		const Vector2 GetScreenSize() const;
+		const static LPD3DXSPRITE& GetSprite() { return _sprite; }
 	};
 }

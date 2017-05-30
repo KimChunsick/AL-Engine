@@ -40,8 +40,11 @@
     <Filter Include="10. Animation">
       <UniqueIdentifier>{b8ba2625-7c18-4060-8aee-f8dce7858581}</UniqueIdentifier>
     </Filter>
-    <Filter Include="11. ALLog">
-      <UniqueIdentifier>{e7a9f798-64fe-473e-84ee-250a3df336a7}</UniqueIdentifier>
+    <Filter Include="11. Label">
+      <UniqueIdentifier>{4faa6ad6-7819-40dc-9ce2-0ba885ebf4e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="12. Sound">
+      <UniqueIdentifier>{ff77bc45-bbc4-4673-93fc-0890cc56fcb0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -120,8 +123,8 @@
     <ClCompile Include="Sprite.cpp">
       <Filter>09. Sprite</Filter>
     </ClCompile>
-    <ClCompile Include="ALLog.cpp">
-      <Filter>11. ALLog</Filter>
+    <ClCompile Include="Label.cpp">
+      <Filter>11. Label</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -204,8 +207,8 @@
     <ClInclude Include="Sprite.h">
       <Filter>09. Sprite</Filter>
     </ClInclude>
-    <ClInclude Include="ALLog.h">
-      <Filter>11. ALLog</Filter>
+    <ClInclude Include="Label.h">
+      <Filter>11. Label</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -26,6 +26,12 @@ void DemoScene::OnEnter()
 	_player->SetPositionX(screenSize.x * 0.5f);
 	_player->SetPositionY(screenSize.y * 0.8f);
 	this->AddChild(_player);
+
+	Label* _label = new Label();
+	_label->Init(L"Å×½ºÆ®", 20, 10, LABEL_TYPE::NORMAL, true, LABEL_QUALITY::NORMAL);
+	_label->SetPosition(Director::GetInstance()->GetScreenSize() * 0.5f);
+	_label->SetGlobalDepth(10000);
+	this->AddChild(_label);
 }
 
 void DemoScene::OnExit()

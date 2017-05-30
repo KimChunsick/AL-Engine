@@ -2,24 +2,24 @@
 
 namespace AL
 {
-	Color::Color(float r, float g, float b)
+	Color::Color(const float r, const float g, const float b)
 	{
 		Set(r, g, b);
 	}
 
-	Color::Color(float r, float g, float b, float a)
+	Color::Color(const float r, const float g, const float b, const float a)
 	{
 		Set(r, g, b, a);
 	}
 
-	void Color::Set(float r, float g, float b)
+	void Color::Set(const float r, const float g, const float b)
 	{
 		(*this).r = r;
 		(*this).g = g;
 		(*this).b = b;
 	}
 
-	void Color::Set(float r, float g, float b, float a)
+	void Color::Set(const float r, const float g, const float b, const float a)
 	{
 		(*this).r = r;
 		(*this).g = g;
@@ -27,7 +27,7 @@ namespace AL
 		(*this).a = a;
 	}
 
-	Vector2::Vector2(float x, float y)
+	Vector2::Vector2(const float x, const float y)
 	{
 		(*this).x = x;
 		(*this).y = y;
@@ -38,6 +38,8 @@ namespace AL
 		float dx = vec2.x - x;
 		float dy = vec2.y - y;
 
+		// TODO!
+		// FaseInvSqrt로 변경하기
 		return sqrt(dx * dx + dy * dy);
 	}
 
@@ -67,14 +69,6 @@ namespace AL
 		Vector2 temp = *this;
 		temp.Normalize();
 		return temp;
-	}
-
-	Time::Time()
-	{
-	}
-
-	Time::~Time()
-	{
 	}
 
 	float Time::deltaTime = 0.f;

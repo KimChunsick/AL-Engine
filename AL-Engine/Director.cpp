@@ -3,13 +3,18 @@
 
 namespace AL
 {
-	LPD3DXSPRITE Director::sprite;
+	LPD3DXSPRITE Director::_sprite;
 
 	Director::Director() :
 		_currentScene(nullptr),
 		_nextScene(nullptr)
 	{
+		
+	}
 
+	void Director::Init()
+	{
+		D3DXCreateSprite(DXUTGetD3D9Device(), &_sprite);
 	}
 
 	void Director::Update()
@@ -18,7 +23,7 @@ namespace AL
 		AutoReleasePool::GetInstance()->AutoRelease();
 	}
 
-	void Director::ReplaceScene(Scene * scene)
+	void Director::ReplaceScene(Scene* const scene)
 	{
 		if (scene == _nextScene)
 			return;
@@ -34,7 +39,7 @@ namespace AL
 		_nextScene = scene;
 	}
 
-	Vector2 Director::GetScreenSize()
+	const Vector2 Director::GetScreenSize() const
 	{
 		RECT rect;
 		GetClientRect(DXUTGetHWND(), &rect);
