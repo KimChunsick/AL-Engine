@@ -10,6 +10,8 @@ PlayerShip::PlayerShip()
 
 void PlayerShip::Update()
 {
+	printf("Still Update %d\n", IsActive());
+
 	SetPerfectCollider();
 	GetKey();
 }

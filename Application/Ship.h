@@ -13,7 +13,7 @@ class Ship : public Sprite
 {
 public:
 	Ship();
-	virtual ~Ship();
+	virtual ~Ship() = default;
 
 	void SetSpeed(float speed) { _speed = speed; }
 	float GetSpeed() { return _speed; }
@@ -26,6 +26,8 @@ public:
 
 	void GetHit(int damage);
 	virtual void Spawn();
+
+	void Update() override;
 
 	void SetType(SHIP_TYPE type) { _type = type; }
 	SHIP_TYPE GetType() { return _type; }

@@ -6,7 +6,6 @@
 
 namespace AL
 {
-	//TODO : fix codination setting
 	class Collider
 	{
 	public:

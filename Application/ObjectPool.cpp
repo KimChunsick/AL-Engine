@@ -8,6 +8,7 @@ void ObjectPool::Init(Scene * parent, int count)
 	{
 		tempBullet = new Bullet();
 		tempBullet->SetActive(false);
+		tempBullet->SetName("Bullet");
 		_bullets.push_back(tempBullet);
 		_parent->AddChild(tempBullet);
 	}
@@ -16,6 +17,7 @@ void ObjectPool::Init(Scene * parent, int count)
 	for (int i = 0; i < count * 0.5f; ++i)
 	{
 		tempShip = new EnemyShip();
+		tempShip->SetName("EnemyShip");
 		tempShip->SetSpeed(50.0f);
 		tempShip->SetActive(false);
 		_enemyShips.push_back(tempShip);
@@ -29,6 +31,7 @@ void ObjectPool::Init(Scene * parent, int count)
 		ufoShip->SetSpeed(100.0f);
 		ufoShip->SetRotationSpeed(1.f);
 		ufoShip->SetActive(false);
+		ufoShip->SetName("UFOShip");
 		_enemyShips.push_back(ufoShip);
 		_parent->AddChild(ufoShip);
 	}

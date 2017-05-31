@@ -5,9 +5,6 @@ Ship::Ship() :
 	_damage(0)
 { }
 
-Ship::~Ship()
-{ }
-
 void Ship::GetHit(int damage)
 {
 	_hp -= damage;
@@ -16,7 +13,6 @@ void Ship::GetHit(int damage)
 	{
 		Die();
 	}
-	std::cout << damage << std::endl;
 }
 
 void Ship::Die()
@@ -27,4 +23,9 @@ void Ship::Die()
 void Ship::Spawn()
 {
 	
+}
+
+void Ship::Update()
+{
+
 }

@@ -12,6 +12,7 @@ void DemoScene::OnEnter()
 
 	_bg = new BG();
 	_bg->Init(10, 20);
+	_bg->SetName("BG");
 	this->AddChild(_bg);
 
 	ObjectPool::GetInstance()->Init(this, 20);
@@ -19,25 +20,30 @@ void DemoScene::OnEnter()
 	Sprite* refCountTest = new Sprite(L"Etc/life.png");
 	refCountTest->SetPosition(Director::GetInstance()->GetScreenSize() * 0.5f);
 	refCountTest->SetGlobalDepth(100);
-
+	
 	_player = new PlayerShip();
 	_player->SetSpeed(250.f);
 	_player->SetDamage(1);
 	_player->SetPositionX(screenSize.x * 0.5f);
 	_player->SetPositionY(screenSize.y * 0.8f);
+	_player->SetName("Player");
 	this->AddChild(_player);
-
+	
 	Label* _label = new Label();
 	_label->Init(L"Å×½ºÆ®", 20, 50, LABEL_TYPE::NORMAL, true, LABEL_QUALITY::NORMAL);
 	_label->SetPosition(Director::GetInstance()->GetScreenSize() * 0.5f);
 	_label->SetFormat(LABEL_ALIGHN::RIGHR);
 	_label->SetGlobalDepth(10000);
 	this->AddChild(_label);
+	
+	SoundManager::GetInstance()->LoadSound("Burner.mp3");
+	SoundManager::GetInstance()->SetMode("Burner.mp3", FMOD_LOOP_NORMAL);
+	SoundManager::GetInstance()->Play("Burner.mp3", 1.f);
 }
 
 void DemoScene::OnExit()
 {
-	
+
 }
 
 void DemoScene::Update()

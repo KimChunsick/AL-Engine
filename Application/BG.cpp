@@ -8,11 +8,11 @@ BG::BG() :
 void BG::Init(int meteorCount, int starCount)
 {
 	_screenSize = Director::GetInstance()->GetScreenSize();
-	printf("%f\n", _screenSize.y);
 
 	_bg = new Sprite(L"BG/backgroundColor.png");
 	_bg->SetPosition(Director::GetInstance()->GetScreenSize() * 0.5f);
 	_bg->SetScale(Vector2(9, 5));
+	_bg->SetName("BG");
 	this->AddChild(_bg);
 
 	Star* star = nullptr;
@@ -25,6 +25,7 @@ void BG::Init(int meteorCount, int starCount)
 		star->SetPositionX((rand() % (int)_screenSize.x));
 		star->SetPositionY((rand() % (int)_screenSize.y));
 		star->SetSpeed(100);
+		star->SetName("Star");
 		this->AddChild(star);
 		_stars.push_back(star);
 	}

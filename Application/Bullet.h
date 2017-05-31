@@ -7,7 +7,7 @@ class Bullet : public Sprite
 {
 public:
 	Bullet();
-	virtual ~Bullet();
+	virtual ~Bullet() = default;
 	
 	void Update() override;
 	void SetBullet(int damage, float speed, SHIP_TYPE owner);

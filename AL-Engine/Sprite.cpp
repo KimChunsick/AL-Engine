@@ -26,6 +26,7 @@ namespace AL
 
 	void Sprite::Update()
 	{
+
 	}
 
 	void Sprite::Draw()

@@ -50,7 +50,12 @@ namespace AL
 			for (auto it = _children.begin(); it != _children.end(); it++)
 			{
 				if ((*it))
-					(*it)->Visit();
+				{
+					if ((*it)->_isActive)
+						(*it)->Visit();
+					else
+						continue;
+				}
 				else
 					break;
 			}

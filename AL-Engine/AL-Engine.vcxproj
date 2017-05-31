@@ -77,8 +77,8 @@
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>C:\Program Files %28x86%29\FMOD SoundSystem\FMOD Studio API Windows\api\lowlevel\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Program Files %28x86%29\FMOD SoundSystem\FMOD Studio API Windows\api\lowlevel\inc;C:\Develop\GitRepository\AL-Engine\AL-Engine\DXUT\Core;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)inc;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)inc;C:\Develop\GitRepository\AL-Engine\AL-Engine\DXUT\Core;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -16,9 +16,6 @@
     <Filter Include="02. Ref">
       <UniqueIdentifier>{c5b345c1-2f53-474f-a6de-3ad68a044a86}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05. Texture">
-      <UniqueIdentifier>{aa135ad9-e22b-45ee-8282-63bf2d1ffb9d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Library">
       <UniqueIdentifier>{57d70974-fc4f-4aea-a320-35fef499d1f6}</UniqueIdentifier>
     </Filter>
@@ -46,11 +43,11 @@
     <Filter Include="12. Sound">
       <UniqueIdentifier>{ff77bc45-bbc4-4673-93fc-0890cc56fcb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05. Texture">
+      <UniqueIdentifier>{aa135ad9-e22b-45ee-8282-63bf2d1ffb9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Types.cpp">
-      <Filter>01. Types</Filter>
-    </ClCompile>
     <ClCompile Include="Node.cpp">
       <Filter>03. Node</Filter>
     </ClCompile>
@@ -126,7 +123,12 @@
     <ClCompile Include="Label.cpp">
       <Filter>11. Label</Filter>
     </ClCompile>
-    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>12. Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Types.cpp">
+      <Filter>01. Types</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Types.h">

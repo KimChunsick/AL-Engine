@@ -5,10 +5,6 @@ Bullet::Bullet()
 	_screenSize = Director::GetInstance()->GetScreenSize();
 }
 
-Bullet::~Bullet()
-{
-}
-
 void Bullet::Update()
 {
 	SetPerfectCollider();
@@ -29,6 +25,8 @@ void Bullet::SetBullet(int damage, float speed, SHIP_TYPE owner)
 		SetTexture2D(L"Laser/laserGreen.png");
 
 	SetActive(true);
+	_isHit = false;
+	_hitDelay = 0.f;
 }
 
 void Bullet::CollideBullet(Ship * ship)
@@ -42,15 +40,15 @@ void Bullet::CollideBullet(Ship * ship)
 	if (!GetCollider().IsAABB(ship->GetCollider()))
 		return;
 
-	if (ship->GetType() == SHIP_TYPE::PLAYER_SHIP && this->_owner != SHIP_TYPE::PLAYER_SHIP)
+	if (ship->GetType() == SHIP_TYPE::PLAYER_SHIP && _owner != SHIP_TYPE::PLAYER_SHIP)
 	{
-		ship->GetHit(this->_damage);
+		ship->GetHit(_damage);
 		SetTexture2D(L"Laser/laserGreenShot.png");
 		_isHit = true;
 	}
-	else if (ship->GetType() != SHIP_TYPE::PLAYER_SHIP && this->_owner == SHIP_TYPE::PLAYER_SHIP)
+	else if (ship->GetType() != SHIP_TYPE::PLAYER_SHIP && _owner == SHIP_TYPE::PLAYER_SHIP)
 	{
-		ship->GetHit(this->_damage);
+		ship->GetHit(_damage);
 		SetTexture2D(L"Laser/laserRedShot.png");
 		_isHit = true;
 	}
@@ -77,7 +75,10 @@ void Bullet::MoveDown()
 void Bullet::IsOutOfScreen()
 {
 	if (_screenSize.y < GetPositionY() || 0 > GetPositionY() || _screenSize.x < GetPositionX() || 0 > GetPositionX())
+	{
 		SetActive(false);
+		_isHit = false;
+	}
 }
 
 void Bullet::HitCheck()

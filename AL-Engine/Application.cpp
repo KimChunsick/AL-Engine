@@ -1,8 +1,5 @@
+#include "Core.h"
 #include "Application.h"
-#include "Types.h"
-#include "Director.h"
-#include "Texture.h"
-
 
 namespace AL
 {
@@ -10,6 +7,7 @@ namespace AL
 		void* pUserContext)
 	{
 		Director::Init();
+		SoundManager::GetInstance()->Init();
 		return S_OK;
 	}
 
