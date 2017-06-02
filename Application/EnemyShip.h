@@ -7,7 +7,7 @@ class EnemyShip : public Ship
 {
 public:
 	EnemyShip();
-	virtual ~EnemyShip();
+	virtual ~EnemyShip() = default;
 
 	void Update() override;
 	void Spawn() override;
@@ -21,4 +21,5 @@ private:
 private:
 	Vector2 _screenSize;
 	float _fireDelay;
+
 };

@@ -1,4 +1,4 @@
-﻿  Node.cpp
+﻿  Label.cpp
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': macro redefinition
   c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092): note: see previous definition of 'DXGI_STATUS_OCCLUDED'
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED': macro redefinition
@@ -47,4 +47,11 @@ c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): w
   c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50445): note: see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': macro redefinition
   c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50454): note: see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
+c:\develop\gitrepository\al-engine\al-engine\label.cpp(89): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+c:\develop\gitrepository\al-engine\al-engine\label.cpp(91): warning C4267: 'argument': conversion from 'size_t' to 'INT', possible loss of data
+c:\develop\gitrepository\al-engine\al-engine\label.cpp(93): warning C4244: '+=': conversion from 'FLOAT' to 'LONG', possible loss of data
+c:\develop\gitrepository\al-engine\al-engine\label.cpp(94): warning C4244: '+=': conversion from 'FLOAT' to 'LONG', possible loss of data
+c:\develop\gitrepository\al-engine\al-engine\label.cpp(95): warning C4244: '+=': conversion from 'FLOAT' to 'LONG', possible loss of data
+c:\develop\gitrepository\al-engine\al-engine\label.cpp(96): warning C4244: '+=': conversion from 'FLOAT' to 'LONG', possible loss of data
+c:\develop\gitrepository\al-engine\al-engine\label.cpp(97): warning C4267: 'argument': conversion from 'size_t' to 'INT', possible loss of data
   AL-Engine.vcxproj -> C:\Develop\GitRepository\AL-Engine\x64\Debug\AL-Engine.lib

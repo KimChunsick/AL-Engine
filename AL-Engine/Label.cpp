@@ -66,6 +66,8 @@ namespace AL
 		_width = width;
 		_height = height;
 		_text = text;
+		std::wstring filePath = L"../Resources/" + fontName + L".ttf";
+		AddFontResourceEx(filePath.c_str(), FR_PRIVATE, 0);
 		D3DXCreateFont(DXUTGetD3D9Device(), height, width, static_cast<int>(type), 1, isItalic, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, static_cast<int>(quality), DEFAULT_PITCH | FF_DONTCARE, fontName.c_str(), &_font);
 		Renderer::GetInstance()->AddRenderTarget(this);
 	}
@@ -76,6 +78,8 @@ namespace AL
 		_height = height;
 		_text = text;
 		_color = color;
+		std::wstring filePath = L"../Resources/" + fontName + L".ttf";
+		AddFontResourceEx(filePath.c_str(), FR_PRIVATE, 0);
 		D3DXCreateFont(DXUTGetD3D9Device(), height, width, static_cast<int>(type), 1, isItalic, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, static_cast<int>(quality), DEFAULT_PITCH | FF_DONTCARE, fontName.c_str(), &_font);
 		Renderer::GetInstance()->AddRenderTarget(this);
 	}

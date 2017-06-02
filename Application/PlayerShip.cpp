@@ -10,8 +10,6 @@ PlayerShip::PlayerShip()
 
 void PlayerShip::Update()
 {
-	printf("Still Update %d\n", IsActive());
-
 	SetPerfectCollider();
 	GetKey();
 }
@@ -55,6 +53,6 @@ void PlayerShip::GetKey()
 void PlayerShip::Fire()
 {
 	Bullet* temp = ObjectPool::GetInstance()->GetBullet();
-	temp->SetBullet(_damage, 300.f, SHIP_TYPE::PLAYER_SHIP);
 	temp->SetPosition(GetPosition());
+	temp->SetBullet(_damage, 300.f, SHIP_TYPE::PLAYER_SHIP);
 }

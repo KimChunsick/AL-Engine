@@ -23,6 +23,9 @@
     <Filter Include="Game\Bullet">
       <UniqueIdentifier>{8fc6d66f-252e-4356-8ab4-70db450c364f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\UI">
+      <UniqueIdentifier>{4b8432ec-2519-4f49-a591-7ef5c0d3ca93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DemoScene.h">
@@ -51,6 +54,9 @@
     </ClInclude>
     <ClInclude Include="UFOShip.h">
       <Filter>Game\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Game\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="UFOShip.cpp">
       <Filter>Game\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Game\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

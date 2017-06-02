@@ -99,6 +99,7 @@ namespace AL
 		
 		void Normalize();
 		void Set(float x, float y);
+		void Set(Vector2 vector);
 		float Distance(const Vector2&) const;
 		
 		Vector2 GetNormalized();

@@ -11,7 +11,7 @@ private:
 public:
 	UFOShip();
 	virtual ~UFOShip() = default;
-
+	
 	void Update() override;
 	void Spawn() override;
 	void SetRotationSpeed(float speed) { _rotationSpeed = speed; }

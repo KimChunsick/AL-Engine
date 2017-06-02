@@ -14,15 +14,15 @@ namespace AL
 
 		Collider& operator= (const Collider& collider);
 
-		void SetRect(float x, float y, float width, float height, Vector2 pivot, Vector2 _scale);
-		void SetRect(Vector2 position, float width, float height, Vector2 pivot, Vector2 _scale);
-		void SetRect(Vector2 position, Vector2 size, Vector2 pivot, Vector2 _scale);
-		float GetMaxX() const;
-		float GetMaxY() const;
-		float GetMinX() const;
-		float GetMinY() const;
-		float GetMidX() const;
-		float GetMidY() const;
+		//void SetRect(float x, float y, float width, float height, Vector2 pivot, Vector2 _scale);
+		void SetRect(const Vector2 position, const float width, const float height, const Vector2 pivot, const Vector2 scale);
+		void SetRect(const Vector2 position, const Vector2 size, const Vector2 pivot, const Vector2 scale);
+		const float GetMaxX() const;
+		const float GetMaxY() const;
+		const float GetMinX() const;
+		const float GetMinY() const;
+		const float GetMidX() const;
+		const float GetMidY() const;
 
 		bool IsAABB(Collider collision);
 
@@ -32,7 +32,5 @@ namespace AL
 	private:
 		Vector2 _origin;
 		Vector2 _size;
-		Vector2 _pivot;
-		Vector2 _scale;
 	};
 }

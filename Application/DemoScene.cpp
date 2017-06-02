@@ -1,44 +1,38 @@
 #include "DemoScene.h"
 #include "ObjectPool.h"
+#include "UIManager.h"
 
 void DemoScene::OnEnter()
 {
 	Vector2 screenSize = Director::GetInstance()->GetScreenSize();
-
-	TextureManager::GetInstance()->LoadTexture(L"Laser/laserGreen.png");
-	TextureManager::GetInstance()->LoadTexture(L"Laser/laserGreenShot.png");
-	TextureManager::GetInstance()->LoadTexture(L"Laser/laserRed.png");
-	TextureManager::GetInstance()->LoadTexture(L"Laser/laserRedShot.png");
 
 	_bg = new BG();
 	_bg->Init(10, 20);
 	_bg->SetName("BG");
 	this->AddChild(_bg);
 
-	ObjectPool::GetInstance()->Init(this, 20);
+	ObjectPool::GetInstance()->Init(this, 30);
+	UIManager::GetInstance()->Init(this);
 
 	Sprite* refCountTest = new Sprite(L"Etc/life.png");
 	refCountTest->SetPosition(Director::GetInstance()->GetScreenSize() * 0.5f);
 	refCountTest->SetGlobalDepth(100);
 	
 	_player = new PlayerShip();
+	_player->SetHP(3);
 	_player->SetSpeed(250.f);
 	_player->SetDamage(1);
 	_player->SetPositionX(screenSize.x * 0.5f);
 	_player->SetPositionY(screenSize.y * 0.8f);
 	_player->SetName("Player");
+	_player->Sibal(this);
 	this->AddChild(_player);
 	
-	Label* _label = new Label();
-	_label->Init(L"Å×½ºÆ®", 20, 50, LABEL_TYPE::NORMAL, true, LABEL_QUALITY::NORMAL);
-	_label->SetPosition(Director::GetInstance()->GetScreenSize() * 0.5f);
-	_label->SetFormat(LABEL_ALIGHN::RIGHR);
-	_label->SetGlobalDepth(10000);
-	this->AddChild(_label);
+	
 	
 	SoundManager::GetInstance()->LoadSound("Burner.mp3");
-	SoundManager::GetInstance()->SetMode("Burner.mp3", FMOD_LOOP_NORMAL);
 	SoundManager::GetInstance()->Play("Burner.mp3", 1.f);
+	SoundManager::GetInstance()->SetMode("Burner.mp3", FMOD_LOOP_NORMAL);
 }
 
 void DemoScene::OnExit()
@@ -56,13 +50,10 @@ void DemoScene::CollideBullet()
 {
 	for (auto bullet : ObjectPool::GetInstance()->GetBulletList())
 	{
-		if (!bullet->IsActive())
-			continue;
-
 		bullet->CollideBullet(_player);
-		for (auto enemyShip : ObjectPool::GetInstance()->GetEnemyShipList())
+		for (auto ship : ObjectPool::GetInstance()->GetEnemyShipList())
 		{
-			bullet->CollideBullet(enemyShip);
+			bullet->CollideBullet(ship);
 		}
 	}
 }
@@ -77,9 +68,10 @@ void DemoScene::SpawnShip()
 	{
 		Ship* ship = nullptr;
 		if (flag)
-			ship = ObjectPool::GetInstance()->GetUFOShip();
-		else
 			ship = ObjectPool::GetInstance()->GetEnemyShip();
+		else
+			ship = ObjectPool::GetInstance()->GetUFOShip();
+		
 		timer = 0.f;
 		ship->Spawn();
 		flag = !flag;

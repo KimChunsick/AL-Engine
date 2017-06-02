@@ -15,15 +15,15 @@ namespace AL
 		SoundFile() = default;
 		~SoundFile() = default;
 		
-		Sound* sound;
+		FMOD_SOUND* sound;
 		std::string fileName;
-		Channel* channel;
+		FMOD_CHANNEL* channel;
 	};
 
 	class SoundManager : public Singleton<SoundManager>
 	{
 	private:
-		System* _soundSystem;
+		FMOD_SYSTEM* _soundSystem;
 		std::list<SoundFile*> _loadedList;
 
 	public:

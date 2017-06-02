@@ -34,17 +34,14 @@
     <Filter Include="09. Sprite">
       <UniqueIdentifier>{ebe344d6-f76b-4be4-bf44-daf224e82e38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="10. Animation">
-      <UniqueIdentifier>{b8ba2625-7c18-4060-8aee-f8dce7858581}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="11. Label">
-      <UniqueIdentifier>{4faa6ad6-7819-40dc-9ce2-0ba885ebf4e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="12. Sound">
-      <UniqueIdentifier>{ff77bc45-bbc4-4673-93fc-0890cc56fcb0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="05. Texture">
       <UniqueIdentifier>{aa135ad9-e22b-45ee-8282-63bf2d1ffb9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10. Label">
+      <UniqueIdentifier>{4faa6ad6-7819-40dc-9ce2-0ba885ebf4e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="11. Sound">
+      <UniqueIdentifier>{ff77bc45-bbc4-4673-93fc-0890cc56fcb0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -121,10 +118,10 @@
       <Filter>09. Sprite</Filter>
     </ClCompile>
     <ClCompile Include="Label.cpp">
-      <Filter>11. Label</Filter>
+      <Filter>10. Label</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
-      <Filter>12. Sound</Filter>
+      <Filter>11. Sound</Filter>
     </ClCompile>
     <ClCompile Include="Types.cpp">
       <Filter>01. Types</Filter>
@@ -211,10 +208,10 @@
       <Filter>09. Sprite</Filter>
     </ClInclude>
     <ClInclude Include="Label.h">
-      <Filter>11. Label</Filter>
+      <Filter>10. Label</Filter>
     </ClInclude>
     <ClInclude Include="SoundManager.h">
-      <Filter>12. Sound</Filter>
+      <Filter>11. Sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

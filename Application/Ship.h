@@ -27,10 +27,17 @@ public:
 	void GetHit(int damage);
 	virtual void Spawn();
 
-	void Update() override;
-
 	void SetType(SHIP_TYPE type) { _type = type; }
 	SHIP_TYPE GetType() { return _type; }
+
+	void Sibal(Node* parent)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			sibal[i] = new Sprite(L"Debug.png");
+			parent->AddChild(sibal[i]);
+		}
+	}
 
 protected:
 	virtual void Die();
@@ -40,5 +47,5 @@ protected:
 	int _hp;
 	float _speed;
 	SHIP_TYPE _type;
-
+	Sprite* sibal[4];
 };

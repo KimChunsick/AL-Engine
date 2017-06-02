@@ -8,6 +8,7 @@ namespace AL
 		_color(Color::White()),
 		_texture2D(nullptr)
 	{
+
 	}
 
 	Sprite::Sprite(const std::wstring path) :
@@ -26,9 +27,9 @@ namespace AL
 
 	void Sprite::Update()
 	{
-
+		SetPerfectCollider();
 	}
-
+	
 	void Sprite::Draw()
 	{
 		if (!IsActive())
@@ -61,7 +62,7 @@ namespace AL
 	void Sprite::SetPerfectCollider()
 	{
 		if (_texture2D != nullptr)
-			_collider.SetRect(GetPosition(), Vector2(_texture2D->info.Width, _texture2D->info.Height), _pivot, GetScale());
+			_collider.SetRect(_position, _texture2D->info.Width, _texture2D->info.Height, _pivot, _scale);
 	}
 
 	bool Sprite::IsCulling()

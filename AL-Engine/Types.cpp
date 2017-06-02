@@ -64,6 +64,12 @@ namespace AL
 		(*this).y = y;
 	}
 
+	void Vector2::Set(Vector2 vector)
+	{
+		(*this).x = vector.x;
+		(*this).y = vector.y;
+	}
+
 	Vector2 Vector2::GetNormalized()
 	{
 		Vector2 temp = *this;

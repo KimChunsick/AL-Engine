@@ -134,6 +134,7 @@
     <ClInclude Include="Ship.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="UFOShip.h" />
+    <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BG.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Star.cpp" />
     <ClCompile Include="UFOShip.cpp" />
+    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

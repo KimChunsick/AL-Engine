@@ -12,6 +12,7 @@ public:
 	void Update() override;
 	void SetBullet(int damage, float speed, SHIP_TYPE owner);
 	void CollideBullet(Ship* ship);
+	const SHIP_TYPE GetOwner() const { return _owner; }
 
 private:
 	void Movement();

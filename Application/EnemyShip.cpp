@@ -7,11 +7,12 @@ EnemyShip::EnemyShip() :
 	_type = SHIP_TYPE::ENEMY_SHIP;
 	SetTexture2D(L"Ships/Enemy/enemyShip.png");
 	_screenSize = Director::GetInstance()->GetScreenSize();
-	SetHP(1);
-}
 
-EnemyShip::~EnemyShip()
-{
+	SetHP(1);
+	SetName("EnemyShip");
+	SetSpeed(50.f);
+	SetActive(false);
+	SetColor(Color::White());
 }
 
 void EnemyShip::Update()
@@ -27,8 +28,8 @@ void EnemyShip::Update()
 void EnemyShip::Fire()
 {
 	Bullet* temp = ObjectPool::GetInstance()->GetBullet();
-	temp->SetBullet(_damage, 200.f, SHIP_TYPE::ENEMY_SHIP);
 	temp->SetPosition(GetPosition());
+	temp->SetBullet(_damage, 200.f, SHIP_TYPE::ENEMY_SHIP);
 }
 
 void EnemyShip::Spawn()
@@ -38,6 +39,8 @@ void EnemyShip::Spawn()
 	SetPosition(x, y);
 	SetActive(true);
 	SetHP(1);
+	SetColor(Color::White());
+	_type = SHIP_TYPE::ENEMY_SHIP;
 }
 
 void EnemyShip::Move()

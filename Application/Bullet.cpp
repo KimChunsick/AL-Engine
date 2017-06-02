@@ -1,8 +1,13 @@
 #include "Bullet.h"
 
-Bullet::Bullet()
+Bullet::Bullet() : 
+	_owner(SHIP_TYPE::PLAYER_SHIP), 
+	_isHit(false), 
+	_hitDelay(0.f)
 {
 	_screenSize = Director::GetInstance()->GetScreenSize();
+	SetActive(false);
+	SetName("Bullet");
 }
 
 void Bullet::Update()
@@ -24,6 +29,7 @@ void Bullet::SetBullet(int damage, float speed, SHIP_TYPE owner)
 	else
 		SetTexture2D(L"Laser/laserGreen.png");
 
+	SetPerfectCollider();
 	SetActive(true);
 	_isHit = false;
 	_hitDelay = 0.f;
@@ -31,7 +37,7 @@ void Bullet::SetBullet(int damage, float speed, SHIP_TYPE owner)
 
 void Bullet::CollideBullet(Ship * ship)
 {
-	if (!ship->IsActive())
+	if (!ship->IsActive() || !IsActive())
 		return;
 
 	if (_isHit)
@@ -40,17 +46,38 @@ void Bullet::CollideBullet(Ship * ship)
 	if (!GetCollider().IsAABB(ship->GetCollider()))
 		return;
 
-	if (ship->GetType() == SHIP_TYPE::PLAYER_SHIP && _owner != SHIP_TYPE::PLAYER_SHIP)
+	switch (ship->GetType())
 	{
-		ship->GetHit(_damage);
-		SetTexture2D(L"Laser/laserGreenShot.png");
-		_isHit = true;
-	}
-	else if (ship->GetType() != SHIP_TYPE::PLAYER_SHIP && _owner == SHIP_TYPE::PLAYER_SHIP)
-	{
-		ship->GetHit(_damage);
-		SetTexture2D(L"Laser/laserRedShot.png");
-		_isHit = true;
+	case SHIP_TYPE::ENEMY_SHIP:
+		if (_owner == SHIP_TYPE::PLAYER_SHIP)
+		{
+			SetTexture2D(L"Laser/laserRedShot.png");
+			ship->GetHit(_damage);
+			_isHit = true;
+		}
+		break;
+
+	case SHIP_TYPE::ENEMY_UFO:
+		if (_owner == SHIP_TYPE::PLAYER_SHIP)
+		{
+			SetTexture2D(L"Laser/laserRedShot.png");
+			ship->GetHit(_damage);
+			_isHit = true;
+		}
+		break;
+
+	case SHIP_TYPE::PLAYER_SHIP:
+		if (_owner != SHIP_TYPE::PLAYER_SHIP)
+		{
+			SetTexture2D(L"Laser/laserGreenShot.png");
+			ship->GetHit(_damage);
+			_isHit = true;
+		}
+		break;
+
+	default:
+		printf("Unknown Type! %d\n", ship->GetType());
+		break;
 	}
 }
 
@@ -75,10 +102,7 @@ void Bullet::MoveDown()
 void Bullet::IsOutOfScreen()
 {
 	if (_screenSize.y < GetPositionY() || 0 > GetPositionY() || _screenSize.x < GetPositionX() || 0 > GetPositionX())
-	{
 		SetActive(false);
-		_isHit = false;
-	}
 }
 
 void Bullet::HitCheck()
@@ -88,10 +112,6 @@ void Bullet::HitCheck()
 		_hitDelay += Time::deltaTime;
 		_speed = 0.f;
 		if (_hitDelay >= 0.3f)
-		{
-			_isHit = false;
-			_hitDelay = 0.f;
 			SetActive(false);
-		}
 	}
 }

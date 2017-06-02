@@ -34,6 +34,7 @@ namespace AL
 
 	void Node::AddChild(Node * child)
 	{
+		child->_parent = this;
 		child->Retain();
 		_children.push_back(child);
 	}

@@ -3,64 +3,63 @@
 
 namespace AL
 {
-	Collider::Collider()
-	{
-		SetRect(0.f, 0.f, 0.f, 0.f, Vector2::Zero(), Vector2::One());
-	}
+	Collider::Collider() : _size(Vector2::Zero()), _origin(Vector2::Zero())
+	{ }
 
 	Collider & Collider::operator=(const Collider & collider)
 	{
-		SetRect(collider._origin, collider._size, collider._pivot, collider._scale);
+		this->_origin = collider._origin;
+		this->_size = collider._size;
 		return *this;
 	}
 
-	void Collider::SetRect(float x, float y, float width, float height, Vector2 pivot, Vector2 _scale)
+	/*void Collider::SetRect(float x, float y, float width, float height, Vector2 pivot, Vector2 scale)
 	{
 		_origin.x = x;
 		_origin.y = y;
-		_size.x = width * pivot.x * _scale.x;
-		_size.y = height * pivot.y * _scale.y;
-	}
+		_size.x = width * pivot.x * scale.x;
+		_size.y = height * pivot.y * scale.y;
+	}*/
 
-	void Collider::SetRect(Vector2 position, float width, float height, Vector2 pivot, Vector2 _scale)
+	void Collider::SetRect(const Vector2 position, const float width, const float height, const Vector2 pivot, const Vector2 scale)
 	{
 		_origin = position;
-		_size.x = width * pivot.x * _scale.x;
-		_size.y = height * pivot.y * _scale.y;
+		_size.x = width * pivot.x * scale.x;
+		_size.y = height * pivot.y * scale.y;
 	}
 
-	void Collider::SetRect(Vector2 position, Vector2 size, Vector2 pivot, Vector2 _scale)
+	void Collider::SetRect(const Vector2 position, const Vector2 size, const Vector2 pivot, const Vector2 scale)
 	{
 		_origin = position;
-		_size = size * pivot * _scale;
+		_size = size * pivot * scale;
 	}
 
-	float Collider::GetMaxX() const
+	const float Collider::GetMaxX() const
 	{
 		return _origin.x + _size.x;
 	}
 
-	float Collider::GetMaxY() const
+	const float Collider::GetMaxY() const
 	{
 		return _origin.y + _size.y;
 	}
 
-	float Collider::GetMinX() const
+	const float Collider::GetMinX() const
 	{
 		return _origin.x - _size.x;
 	}
 
-	float Collider::GetMinY() const
+	const float Collider::GetMinY() const
 	{
 		return _origin.y - _size.y;
 	}
 
-	float Collider::GetMidX() const
+	const float Collider::GetMidX() const
 	{
 		return _origin.x;
 	}
 
-	float Collider::GetMidY() const
+	const float Collider::GetMidY() const
 	{
 		return _origin.y;
 	}
