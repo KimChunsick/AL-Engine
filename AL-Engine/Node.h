@@ -10,6 +10,20 @@ namespace AL
 {
 	class Node : public Ref
 	{
+	private:
+		int					_tag;
+		int					_localDepth;
+		int					_globalDepth;
+		bool				_isActive;
+		bool				_isVisible;
+		float				_rotation;
+
+		Vector2				_scale;
+		Vector2				_position;
+		Node*				_parent;
+		std::string			_name;
+		std::list<Node*>	_children;
+
 	public:
 		Node();
 		virtual ~Node();
@@ -81,18 +95,8 @@ namespace AL
 
 		const std::list<Node*> GetChildren() const { return _children; }
 	
-	protected:
-		int					_tag;		
-		int					_localDepth;
-		int					_globalDepth;
-		bool				_isActive;	
-		bool				_isVisible;	
-		float				_rotation;
-
-		Vector2				_scale;	
-		Vector2				_position;
-		Node*				_parent;	
-		std::string			_name;	
-		std::list<Node*>	_children;
+	private:
+		void RemoveChildRecursive(Node* child);
+	
 	};
 }

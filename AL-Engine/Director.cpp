@@ -22,8 +22,8 @@ namespace AL
 		UpdateGame();
 		AutoReleasePool::GetInstance()->AutoRelease();
 	}
-
-	void Director::ReplaceScene(Scene* const scene)
+	
+	void Director::ChangeScene(Scene* scene)
 	{
 		if (scene == _nextScene)
 			return;
@@ -37,6 +37,7 @@ namespace AL
 			_nextScene = nullptr;
 		}
 		_nextScene = scene;
+		_nextScene->Retain();
 	}
 
 	const Vector2 Director::GetScreenSize() const
@@ -59,11 +60,12 @@ namespace AL
 	{
 		if (_currentScene)
 		{
-			_currentScene->Release();
+			SoundManager::GetInstance()->ReleaseSound();
+			_currentScene->ForceRelease();
 		}
 		_currentScene = _nextScene;
 		_currentScene->OnEnter();
-		_nextScene->Retain();
+		_currentScene->Retain();
 		_nextScene = nullptr;
 	}
 }

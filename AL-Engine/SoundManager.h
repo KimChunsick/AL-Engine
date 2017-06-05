@@ -37,5 +37,7 @@ namespace AL
 		void SetMode(const std::string fileName, const int mode);
 		void Play(const std::string fileName);
 		void Play(const std::string fileName, const float volume);
+		void ReleaseSound();
+		void ReleaseSystem();
 	};
 }

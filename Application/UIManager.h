@@ -10,8 +10,10 @@ public:
 
 	void Init(Node* const parent);
 	void AddScore(int const value);
+	void Release();
 
 private:
 	int _scoreValue;
 	Label* _score;
+	Node* _parent;
 };

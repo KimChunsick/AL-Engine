@@ -53,4 +53,21 @@ namespace AL
 		FMOD_Channel_SetVolume(file->channel, volume);
 		FMOD_System_PlaySound(_soundSystem, file->sound, 0, false, &file->channel);
 	}
+
+	void SoundManager::ReleaseSound()
+	{
+		for (SoundFile* file : _loadedList)
+		{
+			FMOD_Sound_Release(file->sound);
+			SAFE_DELETE(file);
+		}
+		_loadedList.clear();
+	}
+
+	void SoundManager::ReleaseSystem()
+	{
+		ReleaseSound();
+		FMOD_System_Release(_soundSystem);
+		FMOD_System_Close(_soundSystem);
+	}
 }

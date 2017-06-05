@@ -90,10 +90,10 @@ namespace AL
 		RECT rect = { 0, 0, 0, 0 };
 		_font->DrawText(NULL, _text.c_str(), _text.size(), &rect, DT_CENTER | DT_CALCRECT, _color);
 
-		rect.left += _position.x;
-		rect.right += _position.x;
-		rect.top += _position.y;
-		rect.bottom += _position.y;
+		rect.left += GetPositionX();
+		rect.right += GetPositionX();
+		rect.top += GetPositionY();
+		rect.bottom += GetPositionY();
 		_font->DrawText(NULL, _text.c_str(), _text.size(), &rect, DT_CENTER, _color);
 	}
 }

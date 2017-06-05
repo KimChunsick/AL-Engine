@@ -62,7 +62,7 @@ namespace AL
 	void Sprite::SetPerfectCollider()
 	{
 		if (_texture2D != nullptr)
-			_collider.SetRect(_position, _texture2D->info.Width, _texture2D->info.Height, _pivot, _scale);
+			_collider.SetRect(GetPosition(), _texture2D->info.Width, _texture2D->info.Height, _pivot, GetScale());
 	}
 
 	bool Sprite::IsCulling()

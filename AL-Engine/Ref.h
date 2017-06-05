@@ -10,9 +10,10 @@ namespace AL
 
 		virtual void Retain();
 		virtual void Release();
+		virtual void ForceRelease();
 		void SetAutoRelease();
 
-		unsigned int GetRefCount() const;
+		const unsigned int GetRefCount() const;
 
 	protected:
 		Ref();

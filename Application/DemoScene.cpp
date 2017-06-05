@@ -1,6 +1,7 @@
 #include "DemoScene.h"
 #include "ObjectPool.h"
 #include "UIManager.h"
+#include "DemoScene2.h"
 
 void DemoScene::OnEnter()
 {
@@ -25,10 +26,7 @@ void DemoScene::OnEnter()
 	_player->SetPositionX(screenSize.x * 0.5f);
 	_player->SetPositionY(screenSize.y * 0.8f);
 	_player->SetName("Player");
-	_player->Sibal(this);
 	this->AddChild(_player);
-	
-	
 	
 	SoundManager::GetInstance()->LoadSound("Burner.mp3");
 	SoundManager::GetInstance()->Play("Burner.mp3", 1.f);
@@ -37,13 +35,19 @@ void DemoScene::OnEnter()
 
 void DemoScene::OnExit()
 {
-
+	ObjectPool::GetInstance()->Release();
+	UIManager::GetInstance()->Release();
 }
 
 void DemoScene::Update()
 {
 	SpawnShip();
 	CollideBullet();
+
+	if (DXUTIsKeyDown('C'))
+	{
+		Director::GetInstance()->ChangeScene(new DemoScene2());
+	}
 }
 
 void DemoScene::CollideBullet()

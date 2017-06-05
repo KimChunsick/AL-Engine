@@ -31,6 +31,7 @@ namespace AL
 	void CALLBACK OnD3D9DestroyDevice(void* pUserContext)
 	{
 		TextureManager::GetInstance()->Drain();
+		SoundManager::GetInstance()->ReleaseSystem();
 		exit(0);
 	}
 
@@ -56,7 +57,7 @@ namespace AL
 		DXUTCreateWindow(title.c_str());
 		DXUTCreateDevice(isWindow, width, height);
 
-		Director::GetInstance()->ReplaceScene(scene);
+		Director::GetInstance()->ChangeScene(scene);
 	}
 
 	int Application::Start()

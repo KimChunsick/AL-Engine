@@ -27,12 +27,18 @@ namespace AL
 			delete this;
 	}
 
+	void Ref::ForceRelease()
+	{
+		_refCount = 0;
+		delete this;
+	}
+
 	void Ref::SetAutoRelease()
 	{
 		AutoReleasePool::GetInstance()->AddPool(this);
 	}
 
-	unsigned int Ref::GetRefCount() const
+	const unsigned int Ref::GetRefCount() const
 	{
 		return _refCount;
 	}

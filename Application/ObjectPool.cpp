@@ -27,6 +27,17 @@ void ObjectPool::Init(Scene * parent, int count)
 	}
 }
 
+void ObjectPool::Release()
+{
+	for (Ship* ship : _enemyShips)
+		_parent->RemoveChild(ship);
+	
+	for (Bullet* bullet : _bullets)
+		_parent->RemoveChild(bullet);
+	
+	ReleaseInstance();
+}
+
 Bullet * ObjectPool::GetBullet()
 {
 	for (Bullet* bullet : _bullets)

@@ -128,6 +128,7 @@
     <ClInclude Include="BG.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="DemoScene.h" />
+    <ClInclude Include="DemoScene2.h" />
     <ClInclude Include="EnemyShip.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="PlayerShip.h" />
@@ -140,6 +141,7 @@
     <ClCompile Include="BG.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="DemoScene.cpp" />
+    <ClCompile Include="DemoScene2.cpp" />
     <ClCompile Include="EnemyShip.cpp" />
     <ClCompile Include="Entry.cpp" />
     <ClCompile Include="ObjectPool.cpp" />

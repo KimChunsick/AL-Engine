@@ -58,6 +58,9 @@
     <ClInclude Include="UIManager.h">
       <Filter>Game\UI</Filter>
     </ClInclude>
+    <ClInclude Include="DemoScene2.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DemoScene.cpp">
@@ -92,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
       <Filter>Game\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="DemoScene2.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

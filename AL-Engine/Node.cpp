@@ -42,13 +42,15 @@ namespace AL
 	void Node::RemoveChild(Node * child)
 	{
 		_children.remove(child);
+		RemoveChildRecursive(child);
+		child->Release();
 	}
 
 	void Node::Visit()
 	{
 		if (!_children.empty())
 		{
-			for (auto it = _children.begin(); it != _children.end(); it++)
+			for (auto it = _children.begin(); it != _children.end(); ++it)
 			{
 				if ((*it))
 				{
@@ -78,5 +80,23 @@ namespace AL
 			m *= _parent->GetMatrix();
 
 		return m;
+	}
+
+	void Node::RemoveChildRecursive(Node* child)
+	{
+		if (!child->_children.empty())
+		{
+			for (auto it = child->_children.begin(); it != child->_children.end();)
+			{
+				if ((*it))
+				{
+					child->RemoveChildRecursive((*it));
+					(*it)->Release();
+					it = child->_children.erase(it);
+				}
+				else
+					++it;
+			}
+		}
 	}
 }

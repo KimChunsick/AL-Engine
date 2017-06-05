@@ -11,7 +11,7 @@ class ObjectPool : public Singleton<ObjectPool>
 {
 public:
 	void Init(Scene* parent, int count);
-	
+	void Release();
 	Bullet* GetBullet();
 	Ship* GetEnemyShip();
 	Ship* GetUFOShip();

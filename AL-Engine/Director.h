@@ -22,7 +22,7 @@ namespace AL
 		virtual ~Director() {}
 
 		void Update();
-		void ReplaceScene(Scene* const scene);
+		void ChangeScene(Scene* scene);
 		static void Init();
 
 		const Vector2 GetScreenSize() const;

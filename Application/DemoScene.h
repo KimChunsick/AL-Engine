@@ -8,6 +8,9 @@
 class DemoScene : public Scene
 {
 public:
+	DemoScene() = default;
+	virtual ~DemoScene() = default;
+
 	void OnEnter() override;
 	void OnExit() override;
 	void Update() override;
